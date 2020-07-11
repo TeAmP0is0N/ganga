@@ -7,7 +7,7 @@ import sys
 
 file_path = os.path.dirname(os.path.realpath(__file__))
 
-_gangaVersion = '8.3.0'
+_gangaVersion = '8.3.3'
 
 def version():
     return _gangaVersion
@@ -91,9 +91,15 @@ setup(name='ganga',
           'google-api-python-client',
           'google-auth-httplib2',
           'google-auth-oauthlib',
-          'requests>=2.23.0'
+          'requests>=2.23.0',
+          'Flask~=1.1.2',
+          'PyJWT~=1.7.1',
+          'Flask-SQLAlchemy~=2.4.3',
       ],
-      extras_require={'profiler' : ['memory_profiler'], 'LHCb' : ['LbDevTools']},
+      extras_require={
+          'dev': ['coverage', 'pytest', 'pytest-cov', 'pytest-pylint', 'pytest-mock'],
+          'profiler' : ['memory_profiler'],
+          'LHCb' : ['LbDevTools']},
       classifiers=[
           'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
           'Programming Language :: Python :: 3.6',

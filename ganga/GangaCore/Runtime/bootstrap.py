@@ -729,7 +729,7 @@ under certain conditions; type license() for details.
                 gangaver = _versionsort(new_version_format_to_old(_gangaVersion).lstrip('Ganga-'))  # Site config system expects x-y-z version encoding
                 for d in dirlist:
                     vsort = _versionsort(d)
-                    if vsort and ((vsort <= gangaver) or (gangaver is 'SVN')):
+                    if vsort and ((vsort <= gangaver) or (gangaver == 'SVN')):
                         select = os.path.join(this_dir, d)
                         config_files.append(_createpath(select))
                         break
@@ -1011,8 +1011,8 @@ under certain conditions; type license() for details.
         logger.debug("Entering run")
 
         if self.options.webgui == True:
-            from GangaCore.Runtime.http_server import start_server
-            start_server()
+            from GangaGUI.start import start_gui
+            start_gui()
 
         if local_ns is None:
             import __main__
